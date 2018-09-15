@@ -8,8 +8,8 @@ import time
 # 一時的に保存するページのリスト
 linkData = []
 
-keyword = ""
-max = 200
+keyword = "犬"
+max = 1000
 
 # 検索結果から各ページのリンク先をmaxページ分だけ取得
 for num in range(0,max,20):
@@ -31,9 +31,9 @@ for num in range(0,max,20):
 # 各ページから画像データのリンクを取得して、画像を保存
 for link in linkData:
     res = requests.get(link)
-    print("res:",res)
+    #print("res:",res)
     soup = BeautifulSoup(res.text, "lxml")
-    print("soup:",soup)
+    #print("soup:",soup)
     # 記事中の画像データを抜き出す
     # class separator -> a の抜き出し
     links = soup.select(".separator > a")
@@ -44,7 +44,7 @@ for link in linkData:
         # ファイル名の取得
         filename = re.search(r"http.*\/(.*png|.*jpg)$",imageLink)
 
-        print("filename:",filename)
+        #print("filename:",filename)
         # デバッグ用にダウンロード先Linkを表示
         print("imagelink:",imageLink)
         # 画像をダウンロードする
