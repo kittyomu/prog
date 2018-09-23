@@ -11,7 +11,7 @@ ptna = Ptna("ptna")
 def putlog(str):
     lb.insert(tk.END, str)
 
-def prmpt():
+def prompt():
     p = ptna.name
     if (action.get()) == 0:
         p += " : " + ptna.responder.name
@@ -25,6 +25,7 @@ def talk():
         response = ptna.dialogue(value)
         response_area.configure(text=response)
         putlog("> " + value)
+        putlog(prompt() + response)
         entry.delete(0, tk.END)
         
 def run():
@@ -45,7 +46,8 @@ def run():
 
     action = tk.IntVar()
     optionmenu = tk.Menu(menubar)
-    menubar.add_radiobutton(
+    menubar.add_cascade(label="オプション", menu=optionmenu)
+    optionmenu.add_radiobutton(
         label="Responderを表示",
         variable=action,
         value = 0
