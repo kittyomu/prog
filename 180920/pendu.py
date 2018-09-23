@@ -40,10 +40,9 @@ def get_action(_env, _q_table, _observation, _episode):
 
 if __name__ == '__main__':
 
-    env = gym.make('MountainCar-v0')
-
-    # Qテーブルの初期化
-    q_table = np.zeros((40, 40, 3))
+    env = gym.make('Pendulum-v0')
+   # Qテーブルの初期化
+    q_table = np.zeros((0, 0, 0))
 
     observation = env.reset()
     rewards = []
@@ -53,7 +52,7 @@ if __name__ == '__main__':
         total_reward = 0
         observation = env.reset()
 
-        for _ in range(200):
+        for _ in range(2000):
 
             # ε-グリーディ法で行動を選択
             action = get_action(env, q_table, observation, episode)
@@ -66,11 +65,13 @@ if __name__ == '__main__':
             total_reward += reward
 
             observation = next_observation
-
+            if episode%1000 == 0:
+                env.render()
             if done:
                 # doneがTrueになったら１エピソード終了
                 if episode%100 == 0:
                     print('episode: {}, total_reward: {}'.format(episode, total_reward))
                 rewards.append(total_reward)
+                
 
                 break

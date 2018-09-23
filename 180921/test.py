@@ -1,11 +1,5 @@
-smash = "スマッシュ"
-stroke = "ストローク"
-volley = "ボレー"
+num_list = []
 
-for count in range(10):
-    if (6<= count) and (count % 2 == 0):
-        print(volley)
-    elif (count % 2 == 0):
-        print(smash)
-    else:
-        print(stroke)
+num_list = list(range(1, 6))
+
+print(num_list)
