@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.tif
 /180912unitytest
 180912/CITS1.tif
@@ -7,3 +8,14 @@
 *.gif
 /180903
 /gitignore
+=======
+*.tif
+/180912unitytest
+180912/CITS1.tif
+*.png
+*.jpg
+*.jpeg
+*.gif
+/180903
+/gitignore
+>>>>>>> 8c12efb14e2eb7c061025372b886eb04ae15d3d3
